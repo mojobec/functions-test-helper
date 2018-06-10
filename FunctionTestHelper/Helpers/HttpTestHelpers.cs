@@ -2,6 +2,7 @@
 // Licensed under the MIT License. See License.txt in the project root for license information.
 
 using System;
+using System.Collections;
 using System.IO;
 using System.Text;
 using Microsoft.AspNetCore.Http;
@@ -41,10 +42,15 @@ namespace FunctionTestHelper
                 {
                     bytes = bodyBytes;
                 }
+                else if (body is IEnumerable bodyArray)
+                {
+                    bytes = Encoding.UTF8.GetBytes(JArray.FromObject(bodyArray).ToString(Newtonsoft.Json.Formatting.None));
+                }
                 else if (body is object bodyObject)
                 {
                     bytes = Encoding.UTF8.GetBytes(JObject.FromObject(bodyObject).ToString(Newtonsoft.Json.Formatting.None));
                 }
+                
 
                 requestFeature.Body = new MemoryStream(bytes);
                 request.ContentLength = request.Body.Length;

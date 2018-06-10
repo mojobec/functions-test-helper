@@ -12,11 +12,8 @@ namespace FunctionApp.Tests
         [Fact]
         public void HttpTrigger_ValidInput()
         {
-            var query = new Dictionary<String, StringValues>();
-            query.TryAdd("name", "Jeff");
-
             var result = HttpTrigger.Run(
-                req: HttpTestHelpers.CreateHttpRequest("POST", "http://localhost", body: new { name = "Jeff"}), 
+                req: HttpTestHelpers.CreateHttpRequest("POST", uriString: "http://localhost", body: new { name = "Jeff"}), 
                 log: log);
 
             var resultObject = (OkObjectResult)result;
