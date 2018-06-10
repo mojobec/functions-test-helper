@@ -10,7 +10,7 @@ namespace FunctionApp.Tests
     public class HttpFunction : FunctionTestHelper.FunctionTest
     {
         [Fact]
-        public void HttpTrigger_ValidInput()
+        public void HttpTrigger_ValidBody()
         {
             var result = HttpTrigger.Run(
                 req: HttpTestHelpers.CreateHttpRequest("POST", uriString: "http://localhost", body: new { name = "Jeff"}), 
@@ -18,6 +18,27 @@ namespace FunctionApp.Tests
 
             var resultObject = (OkObjectResult)result;
             Assert.Equal("Hello, Jeff", resultObject.Value);
+        }
+
+        [Fact]
+        public void HttpTrigger_ValidQuery()
+        {
+            var result = HttpTrigger.Run(
+                req: HttpTestHelpers.CreateHttpRequest("POST", uriString: "http://localhost?name=Jeff"),
+                log: log);
+
+            var resultObject = (OkObjectResult)result;
+            Assert.Equal("Hello, Jeff", resultObject.Value);
+        }
+
+        [Fact]
+        public void HttpTrigger_EmptyBodyAndQuery()
+        {
+            var result = HttpTrigger.Run(
+                req: HttpTestHelpers.CreateHttpRequest("POST", uriString: "http://localhost"),
+                log: log);
+
+            Assert.IsType<BadRequestObjectResult>(result);
         }
     }
 }
