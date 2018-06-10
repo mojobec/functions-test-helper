@@ -7,7 +7,7 @@ using Xunit;
 
 namespace FunctionApp.Tests
 {
-    public class HttpFunction : FunctionTestHelper.FunctionTest
+    public class HttpFunction : FunctionTest
     {
         [Fact]
         public void HttpTrigger_ValidBody()
