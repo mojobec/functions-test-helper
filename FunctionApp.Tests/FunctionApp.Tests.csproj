@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FunctionApp\FunctionApp.csproj" />
-    <ProjectReference Include="..\FunctionTestFixture\FunctionTestHelper.csproj" />
+    <ProjectReference Include="..\FunctionTestHelper\FunctionTestHelper.csproj" />
   </ItemGroup>
 
 </Project>
