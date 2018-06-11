@@ -1,6 +1,8 @@
 using FunctionTestHelper;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -39,5 +41,6 @@ namespace FunctionApp.Tests.Integration
             Assert.Equal("Hello, Jeff", body);
             output.WriteLine(Fixture.Host.GetLog());
         }
+        
     }
 }

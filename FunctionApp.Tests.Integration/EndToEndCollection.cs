@@ -1,6 +1,7 @@
 ﻿using FunctionTestHelper;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Xunit;
 
@@ -21,5 +22,8 @@ namespace FunctionApp.Tests.Integration
             base(@"..\..\..\..\FunctionApp\bin\Debug\netstandard2.0", "CSharp")
         {
         }
+
+        // If desired you can specify which functions load up in this fixture
+        // protected override IEnumerable<string> GetActiveFunctions() => new[] { "BlobTrigger", "EventTrigger", "HttpTrigger" };
     }
 }
