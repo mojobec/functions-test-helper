@@ -50,7 +50,7 @@ namespace FunctionApp.Tests.Integration
 
             await eventHubClient.SendAsync(events);
 
-            await WaitForTraceAsync("EventHubTrigger", log => log.FormattedMessage.Contains(ids[2]));
+            await WaitForTraceAsync("EventHubTrigger", log => log.FormattedMessage.Contains(ids[2]), 60000);
             output.WriteLine(Fixture.Host.GetLog());
         }
     }

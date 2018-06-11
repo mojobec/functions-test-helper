@@ -28,8 +28,6 @@ namespace FunctionTestHelper
             _copiedRootPath = Path.Combine(Path.GetTempPath(), "FunctionsE2E", DateTime.UtcNow.ToString("yyMMdd-HHmmss"));
             FileUtility.CopyDirectory(rootPath, _copiedRootPath);
 
-            // _copiedRootPath = rootPath;
-
             // Allow derived classes to limit functions. We'll update host.json in the copied location
             // so it only affects this fixture's instance.
             IEnumerable<string> functions = GetActiveFunctions();
