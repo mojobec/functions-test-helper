@@ -53,30 +53,8 @@ namespace FunctionApp.Tests.Integration
 
             await eventHubClient.SendAsync(events);
 
-            await Task.Delay(30000);
-
-            string logs = null;
-            logs = Fixture.Host.GetLog();
-
-            //output.WriteLine(logsSnapshot + "\n--------\n");
-            try
-            {
-                //await TestHelpers.Await(() =>
-                //{
-                //    // wait until all of the 3 of the unique IDs sent
-                //    // above have been processed
-                //    //string logs = Fixture.Host.GetLog();
-                //    return ids.All(p => logs.Contains(p));
-                //    //return true;
-                //});
-            }
-            catch (Exception)
-            {
-
-            }
-
-            ////Assert.Contains("IsArray true", logs);
-            output.WriteLine(ids.All(p => logs.Contains(p)).ToString() + Environment.NewLine + logs);
+            await WaitForTraceAsync("EventHubTrigger", log => log.FormattedMessage.Contains(ids[2]));
+            output.WriteLine(Fixture.Host.GetLog());
         }
     }
 }
