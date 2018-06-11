@@ -41,14 +41,5 @@ namespace FunctionApp.Tests.Integration
             Assert.Equal("Hello, Jeff", body);
             output.WriteLine(Fixture.Host.GetLog());
         }
-
-
-        //public class TestFixture : EndToEndTestFixture
-        //{
-        //    public TestFixture() :
-        //        base(@"..\..\..\..\FunctionApp\bin\Debug\netstandard2.0", "CSharp")
-        //    {
-        //    }
-        //}
     }
 }

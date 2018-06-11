@@ -9,9 +9,12 @@ namespace FunctionApp
     public static class EventHubTrigger
     {
         [FunctionName("EventHubTrigger")]
-        public static void Run([EventHubTrigger("test", Connection = "EventHubsConnectionString")]EventData eventData, TraceWriter log)
+        public static void Run([EventHubTrigger("test", Connection = "EventHubsConnectionString")]EventData[] eventDataArray, TraceWriter log)
         {
-            log.Info($"C# Event Hub trigger function processed a message: {Encoding.UTF8.GetString(eventData.Body.Array)}");
+            foreach(var e in eventDataArray)
+            {
+                log.Info($"C# Event Hub trigger function processed a message: {Encoding.UTF8.GetString(e.Body.Array)}");
+            }
         }
     }
 }
