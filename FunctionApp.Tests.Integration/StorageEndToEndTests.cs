@@ -22,6 +22,7 @@ namespace FunctionApp.Tests.Integration
         public async Task BlobTrigger_TriggerFires()
         {
             var container = Fixture.BlobClient.GetContainerReference("test");
+            await container.CreateIfNotExistsAsync();
             CloudBlockBlob blob = container.GetBlockBlobReference("testBlob");
 
             await blob.UploadTextAsync("Test blob file");
