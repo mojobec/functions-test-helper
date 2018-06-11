@@ -22,16 +22,15 @@ namespace FunctionApp.Tests.Integration
         }
 
         [Fact]
-        public void EventHub_TriggerFires()
+        public async Task EventHub_TriggerFires()
         {
             string testData = Guid.NewGuid().ToString();
             EventData data = new EventData(Encoding.UTF8.GetBytes(testData));
 
-            // await Fixture.Host.BeginFunctionAsync("EventHubTrigger", testData);
-            //var logResult = await WaitForTraceAsync("EventHubTrigger", log => log.FormattedMessage.Contains(testData));
-            //Assert.NotNull(logResult);
+            await Fixture.Host.BeginFunctionAsync("EventHubTrigger", testData);
+            var logResult = await WaitForTraceAsync("EventHubTrigger", log => log.FormattedMessage.Contains(testData));
+            Assert.NotNull(logResult);
             output.WriteLine(Fixture.Host.GetLog());
-            Assert.True(true);
         }
     }
 }

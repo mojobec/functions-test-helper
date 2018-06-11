@@ -46,7 +46,6 @@ namespace FunctionTestHelper
             UpdateEnvironmentVariables(Path.Combine(_copiedRootPath, "local.settings.json"));
 
             string connectionString = AmbientConnectionStringProvider.Instance.GetConnectionString(ConnectionStringNames.Storage);
-            // Environment.GetEnvironmentVariable("AzureWebJobsStorage");
             CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
 
             QueueClient = storageAccount.CreateCloudQueueClient();
