@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.27729.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionTestHelper", "FunctionTestHelper\FunctionTestHelper.csproj", "{6B8D529F-6AA1-4041-ABD0-491A26488BD4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionApp", "FunctionApp\FunctionApp.csproj", "{13F209AA-3487-469E-A0FE-94EC3629CBB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionApp", "FunctionApp\FunctionApp.csproj", "{13F209AA-3487-469E-A0FE-94EC3629CBB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionApp.Tests", "FunctionApp.Tests\FunctionApp.Tests.csproj", "{C57928F3-BFED-4230-9059-8BB1208764D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionApp.Tests", "FunctionApp.Tests\FunctionApp.Tests.csproj", "{C57928F3-BFED-4230-9059-8BB1208764D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionApp.Tests.Integration", "FunctionApp.Tests.Integration\FunctionApp.Tests.Integration.csproj", "{56C3AA8E-2EE5-481A-AD9E-6AE90F0EE928}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionApp.Tests.Integration", "FunctionApp.Tests.Integration\FunctionApp.Tests.Integration.csproj", "{56C3AA8E-2EE5-481A-AD9E-6AE90F0EE928}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

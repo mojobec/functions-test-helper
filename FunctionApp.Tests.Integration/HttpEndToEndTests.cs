@@ -11,9 +11,8 @@ using Xunit.Abstractions;
 
 namespace FunctionApp.Tests.Integration
 {
-    [Trait("Category", "EndToEnd")]
-    [Trait("Group", "HttpTriggerEndToEnd")]
-    public class HttpEndToEndTests : EndToEndTestsBase<HttpEndToEndTests.TestFixture>
+    [Collection("Function collection")]
+    public class HttpEndToEndTests : EndToEndTestsBase<TestFixture>
     {
         private readonly ITestOutputHelper output;
         public HttpEndToEndTests(TestFixture fixture, ITestOutputHelper output) : base(fixture)
@@ -43,15 +42,13 @@ namespace FunctionApp.Tests.Integration
             output.WriteLine(Fixture.Host.GetLog());
         }
 
-        
-        public class TestFixture : EndToEndTestFixture
-        {
-            public TestFixture() :
-                base(@"..\..\..\..\FunctionApp\bin\Debug\netstandard2.0", "CSharp")
-            {
-            }
 
-            //protected override IEnumerable<string> GetActiveFunctions() => new[] { "EventHubSender", "EventHubTrigger" };
-        }
+        //public class TestFixture : EndToEndTestFixture
+        //{
+        //    public TestFixture() :
+        //        base(@"..\..\..\..\FunctionApp\bin\Debug\netstandard2.0", "CSharp")
+        //    {
+        //    }
+        //}
     }
 }

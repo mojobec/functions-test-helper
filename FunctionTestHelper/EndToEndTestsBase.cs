@@ -54,5 +54,31 @@ namespace FunctionTestHelper
             return JObject.Parse(logEntry);
         }
 
+        protected async Task<LogMessage> WaitForTraceAsync(string functionName, Func<LogMessage, bool> filter)
+        {
+            LogMessage logMessage = null;
+
+            await TestHelpers.Await(() =>
+            {
+                logMessage = Fixture.Host.GetLogMessages(LogCategories.CreateFunctionUserCategory(functionName)).SingleOrDefault(filter);
+                return logMessage != null;
+            });
+
+            return logMessage;
+        }
+
+        protected async Task<LogMessage> WaitForTraceAsync(Func<LogMessage, bool> filter)
+        {
+            LogMessage logMessage = null;
+
+            await TestHelpers.Await(() =>
+            {
+                logMessage = Fixture.Host.GetLogMessages().SingleOrDefault(filter);
+                return logMessage != null;
+            });
+
+            return logMessage;
+        }
+
     }
 }
