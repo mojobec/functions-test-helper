@@ -47,11 +47,18 @@ namespace FunctionApp.Tests.Integration
             }
 
             EventHubClient eventHubClient = EventHubClient.CreateFromConnectionString(builder.ToString());
+            try
+            {
+                await eventHubClient.SendAsync(events);
 
-            await eventHubClient.SendAsync(events);
-
-            await WaitForTraceAsync("EventHubTrigger", log => log.FormattedMessage.Contains(ids[2]), 60000);
-            output.WriteLine(Fixture.Host.GetLog());
+                await WaitForTraceAsync("EventHubTrigger", log => log.FormattedMessage.Contains(ids[2]));
+                output.WriteLine(Fixture.Host.GetLog());
+            }
+            catch(Exception ex)
+            {
+                output.WriteLine(Fixture.Host.GetLog());
+                throw ex;
+            }
         }
     }
 }

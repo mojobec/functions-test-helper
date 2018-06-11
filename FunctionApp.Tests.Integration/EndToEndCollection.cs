@@ -19,7 +19,7 @@ namespace FunctionApp.Tests.Integration
     public class TestFixture : EndToEndTestFixture
     {
         public TestFixture() :
-            base(@"..\..\..\..\FunctionApp\bin\Debug\netstandard2.0", "CSharp")
+            base(@"../../../../FunctionApp/bin/Debug/netstandard2.0", "CSharp")
         {
         }
 
