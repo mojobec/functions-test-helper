@@ -25,10 +25,6 @@ namespace FunctionTestHelper
         {
             FixtureId = testId;
 
-
-            // I removed the test storage entities
-            // CreateTestStorageEntities().Wait();
-
             _copiedRootPath = Path.Combine(Path.GetTempPath(), "FunctionsE2E", DateTime.UtcNow.ToString("yyMMdd-HHmmss"));
             FileUtility.CopyDirectory(rootPath, _copiedRootPath);
 
@@ -77,21 +73,11 @@ namespace FunctionTestHelper
             }
         }
 
-        public CloudBlobContainer TestInputContainer { get; private set; }
-
-        public CloudBlobContainer TestOutputContainer { get; private set; }
-
         public CloudQueueClient QueueClient { get; private set; }
 
         public CloudTableClient TableClient { get; private set; }
 
         public CloudBlobClient BlobClient { get; private set; }
-
-        public CloudQueue TestQueue { get; private set; }
-
-        public CloudQueue MobileTablesQueue { get; private set; }
-
-        public CloudTable TestTable { get; private set; }
 
         public TestFunctionHost Host { get; private set; }
 
@@ -128,15 +114,6 @@ namespace FunctionTestHelper
                     // best effort
                 }
             }
-        }
-
-        private class TestEntity : TableEntity
-        {
-            public string Name { get; set; }
-
-            public string Region { get; set; }
-
-            public int Status { get; set; }
         }
     }
 }

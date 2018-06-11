@@ -1,12 +1,9 @@
 ﻿using FunctionTestHelper;
 using Microsoft.Azure.EventHubs;
-using Microsoft.Azure.WebJobs.Script.Config;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xunit;
