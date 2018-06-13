@@ -3,6 +3,7 @@
   "Values": {
     "AzureWebJobsStorage": "{Azure Storage Connection String}",
     "AzureWebJobsDashboard": "",
-    "EventHubsConnectionString": "{Event Hubs Namespace Connection String}"
+    "EventHubsConnectionString": "{Event Hubs Namespace Connection String}",
+    "AzureWebJobsServiceBus": "{Azure ServiceBus Connection String}"
   }
 }
