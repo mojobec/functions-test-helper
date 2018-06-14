@@ -8,7 +8,7 @@ namespace FunctionApp
     public static class ServiceBusTrigger
     {
         [FunctionName("ServiceBusTrigger")]
-        public static void Run([ServiceBusTrigger("dynamicstest")] Message message, ILogger log)
+        public static void Run([ServiceBusTrigger("test")] Message message, ILogger log)
         {
             log.LogInformation($"C# ServiceBus trigger function processed a message: {Encoding.UTF8.GetString(message.Body)}");
         }
